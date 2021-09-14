@@ -1,0 +1,49 @@
+<div class="form my-5">
+  <div class="container">
+    <form>
+      <div  *ngIf="steps == 1" @fade>
+        <h2 class='text-center text-info'>User Details</h2>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">User Name</label>
+          <input type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+      </div>
+      <!--------------------------------- sencond step----------------------------- -->
+      <div *ngIf="steps == 2" @fade>
+        <h2 class='text-center text-info'>Contact Details</h2>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Address</label>
+          <input type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Mobile</label>
+          <input type="number" class="form-control" id="exampleInputPassword1">
+        </div>
+      </div>
+      <!-- -------------------------------third step------------------------------- -->
+      <div *ngIf="steps == 3" @fade>
+        <h2 class='text-center text-info'>Personal Details</h2>
+        <div class="third-step mb-3">
+          <label for="gender">Gender:</label><br>
+
+          <select id="gender" class='form-control'>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <button (click)="previous(); isLogin = true" class='btn btn-warning' *ngIf='steps != 1'> Previous</button>
+    <button (click)="next(); isLogin = false" type="submit" class="btn btn-success mx-2" *ngIf='steps != 3'>Next</button>
+    <button type="submit" class="btn btn-primary mx-2" *ngIf=' steps == 3'>Submit</button>
+  </div>
+</div>
